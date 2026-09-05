@@ -14,7 +14,7 @@ export default function SiteHeader() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setLogoIndex((current) => (current + 1) % logos.length);
-    }, 1050);
+    }, 500);
     return () => window.clearInterval(timer);
   }, []);
 
