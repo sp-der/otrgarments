@@ -43,16 +43,6 @@ export default function HomeStorefront() {
         />
         <div className="hero__veil" />
         <div className="hero__grain" />
-        <div className="hero__content">
-          <div className="hero__index">OTR GARMENTS / 001</div>
-          <div className="hero__bottom">
-            <h1>ON THE RUN<br />GARMENTS</h1>
-            <div className="hero__aside">
-              <p>Built for movement. Cut for everywhere else.</p>
-              <a href="#shop">SCROLL TO SHOP <span>↓</span></a>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section className="shop" id="shop">
