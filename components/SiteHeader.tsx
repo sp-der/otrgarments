@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { TransitionLink, useCart } from "./AppProviders";
 
-const logos = ["/OTR.png", "/OTR1.png", "/OTR2.png", "/OTR3.png", "/OTR4.png", "/OTR5.png"];
+const logos = ["/OTR.webp", "/OTR1.webp", "/OTR2.webp", "/OTR3.webp", "/OTR4.webp", "/OTR5.webp"];
 
 export default function SiteHeader() {
   const [logoIndex, setLogoIndex] = useState(0);
@@ -12,10 +12,38 @@ export default function SiteHeader() {
   const { count, openCart } = useCart();
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setLogoIndex((current) => (current + 1) % logos.length);
-    }, 500);
-    return () => window.clearInterval(timer);
+    let cancelled = false;
+    let timer: number | undefined;
+
+    // Decode every small WebP before rotating so a cold cache cannot flash blank.
+    const preload = logos.map(async (src, index) => {
+      const image = new Image();
+      image.src = src;
+      try {
+        await image.decode();
+        return { image, index };
+      } catch {
+        return null;
+      }
+    });
+
+    void Promise.all(preload).then((results) => {
+      if (cancelled) return;
+      const ready = results.filter((result) => result !== null);
+      if (ready.length === 0) return;
+      let current = 0;
+      setLogoIndex(ready[current].index);
+      if (ready.length < 2) return;
+      timer = window.setInterval(() => {
+        current = (current + 1) % ready.length;
+        setLogoIndex(ready[current].index);
+      }, 500);
+    });
+
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
   }, []);
 
   useEffect(() => {
@@ -40,9 +68,10 @@ export default function SiteHeader() {
         aria-label="OTR Garments home"
       >
         <img
-          key={logoIndex}
           src={logos[logoIndex]}
-          alt={logoIndex === 0 ? "OTR Garments" : ""}
+          alt="OTR Garments"
+          decoding="async"
+          fetchPriority="high"
         />
       </TransitionLink>
 

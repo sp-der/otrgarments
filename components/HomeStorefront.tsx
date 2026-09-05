@@ -91,7 +91,7 @@ export default function HomeStorefront() {
 
       <section className="brand-statement">
         <div className="brand-statement__line">ON THE RUN / LOS ANGELES</div>
-        <img src="/OTR.png" alt="OTR" />
+        <img src="/OTR.webp" alt="OTR" />
         <p>STREETWEAR BUILT AROUND MOVEMENT, CARS, LATE NIGHTS AND THE PEOPLE WHO NEVER REALLY CLOCK OUT.</p>
       </section>
 
@@ -104,7 +104,7 @@ export default function HomeStorefront() {
       </section>
 
       <footer className="store-footer">
-        <img src="/OTR.png" alt="OTR Garments" />
+        <img src="/OTR.webp" alt="OTR Garments" />
         <div>
           <a href="#shop">SHOP</a>
           <a href="#lookbook">LOOKBOOK</a>
