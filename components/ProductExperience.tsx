@@ -53,7 +53,7 @@ export default function ProductExperience({ product }: { product: Product }) {
             </details>
             <details>
               <summary>SHIPPING + RETURNS <span>+</span></summary>
-              <p>Shipping and returns policy will connect to Shopify before launch.</p>
+              <p>Shipping rates and eligible returns are shown during checkout.</p>
             </details>
           </div>
         </aside>
