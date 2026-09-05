@@ -26,14 +26,27 @@ export default function SiteHeader() {
   }, []);
 
   return (
-    <header className={`site-header ${scrolled ? "site-header--solid" : ""}`}>
+    <header
+      className={`site-header ${scrolled ? "site-header--solid" : ""}`}
+      style={{ borderBottom: "none" }}
+    >
       <nav className="site-header__left" aria-label="Primary navigation">
         <a href="/#shop">SHOP</a>
         <a href="/#lookbook">LOOKBOOK</a>
       </nav>
 
-      <TransitionLink className="brand-cycler" href="/" aria-label="OTR Garments home">
-        <img key={logoIndex} src={logos[logoIndex]} alt={logoIndex === 0 ? "OTR Garments" : ""} />
+      <TransitionLink
+        className="brand-cycler"
+        href="/"
+        aria-label="OTR Garments home"
+        style={{ width: "clamp(240px, 23vw, 400px)", height: "calc(var(--header) - 4px)" }}
+      >
+        <img
+          key={logoIndex}
+          src={logos[logoIndex]}
+          alt={logoIndex === 0 ? "OTR Garments" : ""}
+          style={{ width: "100%", height: "100%", maxWidth: "none", maxHeight: "none", objectFit: "contain" }}
+        />
       </TransitionLink>
 
       <div className="site-header__right">
