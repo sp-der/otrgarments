@@ -193,7 +193,7 @@ function CartDrawer() {
         <div className="cart-drawer__foot">
           <div><span>SUBTOTAL</span><strong>${subtotal}</strong></div>
           <button className="checkout-button" disabled={lines.length === 0}>
-            CHECKOUT COMING WITH SHOPIFY
+            CHECKOUT
           </button>
         </div>
       </aside>
