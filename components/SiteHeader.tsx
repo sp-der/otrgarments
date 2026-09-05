@@ -28,7 +28,6 @@ export default function SiteHeader() {
   return (
     <header
       className={`site-header ${scrolled ? "site-header--solid" : ""}`}
-      style={{ borderBottom: "none" }}
     >
       <nav className="site-header__left" aria-label="Primary navigation">
         <a href="/#shop">SHOP</a>
@@ -39,13 +38,11 @@ export default function SiteHeader() {
         className="brand-cycler"
         href="/"
         aria-label="OTR Garments home"
-        style={{ width: "clamp(240px, 23vw, 400px)", height: "calc(var(--header) - 4px)" }}
       >
         <img
           key={logoIndex}
           src={logos[logoIndex]}
           alt={logoIndex === 0 ? "OTR Garments" : ""}
-          style={{ width: "100%", height: "100%", maxWidth: "none", maxHeight: "none", objectFit: "contain" }}
         />
       </TransitionLink>
 
