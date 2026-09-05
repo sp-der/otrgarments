@@ -58,8 +58,7 @@ export default function SiteHeader() {
       className={`site-header ${scrolled ? "site-header--solid" : ""}`}
     >
       <nav className="site-header__left" aria-label="Primary navigation">
-        <a href="/#shop">SHOP</a>
-        <a href="/#lookbook">LOOKBOOK</a>
+        <a href="/#shop">MENU</a>
       </nav>
 
       <TransitionLink
@@ -91,8 +90,7 @@ export default function SiteHeader() {
       </div>
 
       <div className={`mobile-nav ${menuOpen ? "is-open" : ""}`}>
-        <a href="/#shop" onClick={() => setMenuOpen(false)}>SHOP</a>
-        <a href="/#lookbook" onClick={() => setMenuOpen(false)}>LOOKBOOK</a>
+        <a href="/#shop" onClick={() => setMenuOpen(false)}>MENU</a>
         <button type="button" onClick={() => { setMenuOpen(false); openCart(); }}>BAG ({count})</button>
       </div>
     </header>

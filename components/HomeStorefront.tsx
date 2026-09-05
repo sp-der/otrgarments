@@ -46,12 +46,6 @@ export default function HomeStorefront() {
       </section>
 
       <section className="shop" id="shop">
-        <div className="shop__heading">
-          <p>COLLECTION / 001</p>
-          <h2>GARMENTS FOR<br />THE RUN.</h2>
-          <span>{String(filtered.length).padStart(2, "0")} PIECES</span>
-        </div>
-
         <div className="shop__body">
           <aside className="category-rail" aria-label="Product categories">
             {CATEGORIES.map((item) => (
@@ -62,7 +56,6 @@ export default function HomeStorefront() {
                 onClick={() => chooseCategory(item)}
               >
                 <span>{item}</span>
-                <small>{String(item === "ALL" ? products.length : products.filter((p) => p.categories.includes(item)).length).padStart(2, "0")}</small>
               </button>
             ))}
           </aside>
@@ -106,8 +99,7 @@ export default function HomeStorefront() {
       <footer className="store-footer">
         <img src="/OTR.webp" alt="OTR Garments" />
         <div>
-          <a href="#shop">SHOP</a>
-          <a href="#lookbook">LOOKBOOK</a>
+          <a href="#shop">MENU</a>
           <a href="mailto:otrservicesie@gmail.com">CONTACT</a>
         </div>
         <small>© 2026 OTR GARMENTS</small>
